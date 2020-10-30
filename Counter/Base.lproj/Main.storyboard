@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ew0-53-fcs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,102 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cYk-vy-lWm">
+                                <rect key="frame" x="0.0" y="448" width="414" height="414"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" backgroundImage="plus"/>
+                                <connections>
+                                    <action selector="plusButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Stb-2h-BSj"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jF9-MS-WbQ">
+                                <rect key="frame" x="290" y="118" width="94" height="74"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAJ-wU-fQt">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <color key="textColor" red="0.26274509800000001" green="0.84705882349999995" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="-20" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ded-bb-vMZ">
+                                        <rect key="frame" x="0.0" y="42" width="94" height="32"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="stepChanger:" destination="BYZ-38-t0r" eventType="valueChanged" id="5di-cS-hew"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQE-s8-Y6V">
+                                <rect key="frame" x="0.0" y="253" width="414" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="123" id="Abt-xv-L2b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <color key="textColor" red="0.58431372549019611" green="0.2196078431372549" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jF9-MS-WbQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="KsQ-S5-9xf"/>
+                            <constraint firstItem="uQE-s8-Y6V" firstAttribute="trailing" secondItem="cYk-vy-lWm" secondAttribute="trailing" id="Pjw-dO-Mfl"/>
+                            <constraint firstItem="jF9-MS-WbQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="290" id="UcI-db-dKh"/>
+                            <constraint firstItem="cYk-vy-lWm" firstAttribute="top" secondItem="uQE-s8-Y6V" secondAttribute="bottom" constant="72" id="itA-vJ-fV3"/>
+                            <constraint firstItem="uQE-s8-Y6V" firstAttribute="leading" secondItem="cYk-vy-lWm" secondAttribute="leading" id="vnP-Ec-q0l"/>
+                            <constraint firstItem="uQE-s8-Y6V" firstAttribute="top" secondItem="jF9-MS-WbQ" secondAttribute="bottom" constant="61" id="wDq-Wr-bLa"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2ne-bc-bc8">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="refresh" id="qt1-7j-Z2o">
+                            <connections>
+                                <action selector="resetButtonTapped:" destination="BYZ-38-t0r" id="Uo9-tX-tVQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem id="kCV-dG-O6I"/>
+                            <barButtonItem title="Item" landscapeImage="gearshape" catalog="system" id="FUV-OW-8Yl">
+                                <imageReference key="image" image="gearshape" catalog="system" symbolScale="large"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="countLabel" destination="uQE-s8-Y6V" id="YHK-Vv-D5u"/>
+                        <outlet property="plusButton" destination="cYk-vy-lWm" id="siH-9w-bSp"/>
+                        <outlet property="stepLabel" destination="jAJ-wU-fQt" id="Az7-J3-bu3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="61.607142857142854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RLo-IC-Pgj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ew0-53-fcs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cmF-PO-H5a">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="N2e-ip-Tso"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwC-4d-Y0M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="61.607142857142854"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="plus" width="256" height="256"/>
+    </resources>
 </document>
