@@ -18,8 +18,12 @@ class ViewController: UIViewController {
     var count = 0
     var step = 1
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        count = defaults.object(forKey:"Count") as? Int ?? 0
         
         countLabel.text = String(count)
         
@@ -29,9 +33,11 @@ class ViewController: UIViewController {
     }
     
     
+    
     @IBAction func plusButtonTapped(_ sender: UIButton) {
         count += step
         countLabel.text = String(count)
+        defaults.set(count, forKey: "Count")
     }
     
     @IBAction func stepChanger(_ sender: UIStepper ) {
@@ -63,6 +69,8 @@ class ViewController: UIViewController {
             countLabel.text = String(count)
             stepLabel.text = String("+\(step)")
             plusButton.setBackgroundImage(UIImage(named: "plus"), for: .normal)
+            defaults.set(count, forKey: "Count")
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert,animated: true)
